@@ -16,7 +16,14 @@ package com.nology.classes_03;
 
 public class Employee {
 
+    public String name;
+    public String position;
+    public int rating;
+    public int yearsEmployed;
+    public int completedDeals;
+
     /**
+
      * Create 4 public fields:
      * - name is a string
      * - position is a string
@@ -29,6 +36,11 @@ public class Employee {
      * Complete the constructor below to initialize the class and the data to the fields above.
      */
     public Employee(String name, String position, int rating, int yearsEmployed, int completedDeals) {
+     this.name=name;
+     this.position=position;
+     this.rating=rating;
+     this.yearsEmployed=yearsEmployed;
+     this.completedDeals=completedDeals;
         // complete the constructor in here
     }
 
@@ -40,7 +52,7 @@ public class Employee {
      * @return boolean if employee is promotable
      */
     public boolean isPromotable() {
-        return false;
+        return rating>7 ;
     }
 
     /**
@@ -51,7 +63,8 @@ public class Employee {
      * @return int average deals per year
      */
     public int calculateDealsPerYear() {
-        return -1;
+
+        return completedDeals / yearsEmployed;
     }
 
     /**
@@ -66,6 +79,6 @@ public class Employee {
      * @return boolean if they are eligible for a bonus
      */
     public boolean hasBonusQualification() {
-        return false;
+        return (calculateDealsPerYear() >20 && rating>8 );
     }
 }

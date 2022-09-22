@@ -16,18 +16,50 @@ package com.nology.classes_03;
  */
 
 public class Calculator {
-
     /**
      * Create 3 private fields below:
      * - hasBattery is a boolean set to true by default
      * - firstInput is a double
      * - secondInput is a double
      */
+private boolean hasBattery=true;
+private double firstInput;
+private double secondInput;
+
+    public boolean isHasBattery() {
+        return hasBattery;
+    }
+    public boolean getHasBattery() {
+        return hasBattery;
+    }
+    public void setHasBattery(boolean hasBattery) {
+        this.hasBattery = hasBattery;
+    }
+
+    public double getFirstInput() {
+        return firstInput;
+    }
+
+    public void setFirstInput(double firstInput) {
+        this.firstInput = firstInput;
+    }
+
+    public double getSecondInput() {
+        return secondInput;
+    }
+
+    public void setSecondInput(double secondInput) {
+        this.secondInput = secondInput;
+    }
 
     /**
      * Create a constructor below to initialize the class and the data to the fields above.
      * hasBattery should be set to true by default and is not needed in the constructor
      */
+public Calculator( double firstInput, double secondInput) {
+    this.firstInput = firstInput;
+    this.secondInput = secondInput;
+}
 
     /**
      * Create getters and setters for the fields above.
@@ -49,6 +81,9 @@ public class Calculator {
     /**
      * Create a calculateAddition method below
      *
+     *
+     *
+     *
      * This should:
      * - be a public method
      * - return a double
@@ -60,6 +95,14 @@ public class Calculator {
      *
      * @return double result of firstInput + secondInput
      */
+
+    public double calculateAddition(){
+        if(!hasBattery){
+            return -1;
+        } else{
+            return firstInput+secondInput;
+        }
+    }
 
     /**
      * Create a calculateDivision method below
@@ -76,4 +119,14 @@ public class Calculator {
      *
      * @return double result of firstInput / secondInput
      */
+    public double calculateDivision(){
+        if(!hasBattery){
+            return -1;
+        }
+        if( secondInput==0){
+            return 0;
+        }
+        return firstInput/secondInput;
+    }
+
 }

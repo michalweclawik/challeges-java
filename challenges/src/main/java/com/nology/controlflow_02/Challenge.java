@@ -20,7 +20,8 @@ public class Challenge {
      * @return returns a string which is the concatenation of the 2 parameters
      */
     public String getFullName(String firstName, String lastName) {
-        return "";
+
+        return  firstName + " " + lastName;
     }
 
     /***
@@ -31,7 +32,7 @@ public class Challenge {
      * @return returns a boolean based on whether the number is between 0 and the range limit
      */
     public boolean isWithinRange(int number, int rangeLimit) {
-        return false;
+        return (number-rangeLimit<=0);
     }
 
 
@@ -50,6 +51,29 @@ public class Challenge {
      * @return returns the result of the equation
      */
     public int stringCalculator(int numberOne, int numberTwo, String operator) {
+
+        int result;
+
+        if (numberOne < 1 || numberTwo < 1) {
+            return -1;
+        }
+        switch (operator) {
+            case "-":
+                result = numberOne - numberTwo;
+                break;
+            case "+":
+                result = numberOne + numberTwo;
+                break;
+            case "/":
+                result = numberOne / numberTwo;
+                break;
+            case "*":
+                result = numberOne * numberTwo;
+                break;
+            default:
+                result = -1;
+        }
+
         return -1;
     }
 
@@ -69,8 +93,12 @@ public class Challenge {
      *                  range of 0-23.
      * @return If we need to wake up or not based on the conditions above.
      */
+
     public boolean shouldWakeUp(boolean barking, int hourOfDay) {
-        return false;
+      if (hour)
+
+
+        return barking && (hourOfDay < 8 || hourOfDay > 22);
     }
 
     /***
@@ -83,7 +111,20 @@ public class Challenge {
      * character in the string: a"
      */
     public String getMiddleCharacter(String word) {
-        return "";
+        if(word.contains(" ")|| word.equals("")){
+            return "Invalid Input";
+        }
+        int letterPosition ;
+        int  howManyLetters;
+
+        if (word.length() % 2 != 0) {
+            letterPosition = word.length() / 2;
+            howManyLetters = 1;
+        } else {
+            letterPosition  = word.length() / 2 - 1;
+            howManyLetters = 2;
+        }
+        return word.substring(letterPosition, letterPosition + howManyLetters);
     }
 
 
@@ -121,6 +162,16 @@ public class Challenge {
      * @return returns the total amount after x number of years (including the initial investment)
      */
     public String calculateReturn(int initialInvestment, int years, double rateOfInterest) {
-        return "";
+        if (initialInvestment <= 0) return "Invalid investment";
+        if (years <= 0) return "Invalid years";
+        if (rateOfInterest < 0 || rateOfInterest >= 1d) return "Invalid rate of interest";
+
+        double result=initialInvestment;
+
+        for (int i=0; i<years; i++){
+            result+= result*rateOfInterest;
+        }
+
+            return "You now have " + Math.round(result);
     }
 }

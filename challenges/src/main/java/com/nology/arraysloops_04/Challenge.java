@@ -21,7 +21,7 @@ public class Challenge {
      * @return a new array containing the first and last items in the given array e.g. ["Ollie", "Bex"]
      */
     public String[] getFirstAndLast(String[] namesArr) {
-        return new String[0];
+        return namesArr.length==0? new String[0]:new String[] {namesArr[0], namesArr[namesArr.length-1]};
     }
 
     /***
@@ -31,7 +31,11 @@ public class Challenge {
      * @return an amount e.g. 104
      */
     public int totalAges(int[] agesArr) {
-        return -1;
+        int total = 0;
+        for (int age : agesArr) {
+            total += age;
+        }
+        return total;
     }
 
     /***
@@ -41,7 +45,14 @@ public class Challenge {
      * @return Amount of odd numbers e.g. 3
      */
     public int getAmountOfOddNumbers(int[] numbersArr) {
-        return -1;
+        int total = 0;
+
+        for (int number : numbersArr) {
+            if (number% 2 != 0) {
+                total++;
+            }
+        }
+        return total;
     }
 
     // -------------- INTERMEDIATE --------------
