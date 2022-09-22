@@ -32,7 +32,7 @@ public class Challenge {
      * @return returns a boolean based on whether the number is between 0 and the range limit
      */
     public boolean isWithinRange(int number, int rangeLimit) {
-        return (number-rangeLimit<=0);
+        return (number >= 0) && (number <= rangeLimit);
     }
 
 
@@ -74,7 +74,7 @@ public class Challenge {
                 result = -1;
         }
 
-        return -1;
+        return result;
     }
 
 
@@ -95,11 +95,10 @@ public class Challenge {
      */
 
     public boolean shouldWakeUp(boolean barking, int hourOfDay) {
-      if (hour)
-
-
-        return barking && (hourOfDay < 8 || hourOfDay > 22);
-    }
+        if (hourOfDay>=0 && hourOfDay<=23 && barking){
+            return (hourOfDay<8) || (hourOfDay>22);
+        }
+        return false;}
 
     /***
      * Write a method to display the middle character or characters of a word.
